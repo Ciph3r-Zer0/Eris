@@ -12,7 +12,7 @@ public class Config extends YMLModel {
         try {
             createFile();
             setProperties();
-            loadFile();
+            //loadFile();
             LoadProperties();
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,10 +26,9 @@ public class Config extends YMLModel {
 
     @Override
     public void setProperties() throws IOException {
-        getYMLFile().addDefault("booleanTest", true);
-        getYMLFile().addDefault("integerTest", 1);
-        getYMLFile().addDefault("StringTest", "test");
-        getYMLFile().options().copyDefaults(true);
+        getYMLFile().set("booleanTest", true);
+        getYMLFile().set("integerTest", 1);
+        getYMLFile().set("StringTest", "test");
         getYMLFile().save();
     }
 }

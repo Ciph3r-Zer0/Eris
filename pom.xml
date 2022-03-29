@@ -36,16 +36,16 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <relocations>
-                                <relocation>
-                                    <pattern>org.simpleyaml</pattern>
-                                    <shadedPattern>ir.ciph3r.eris.libs</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.yaml</pattern>
-                                    <shadedPattern>ir.ciph3r.eris.libs</shadedPattern>
-                                </relocation>
-                            </relocations>
+<!--                            <relocations>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.simpleyaml</pattern>-->
+<!--                                    <shadedPattern>ir.ciph3r.eris.libs</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.yaml</pattern>-->
+<!--                                    <shadedPattern>ir.ciph3r.eris.libs</shadedPattern>-->
+<!--                                </relocation>-->
+<!--                            </relocations>-->
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
@@ -134,7 +134,6 @@
             <groupId>me.carleslc.Simple-YAML</groupId>
             <artifactId>Simple-Yaml</artifactId>
             <version>1.8</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

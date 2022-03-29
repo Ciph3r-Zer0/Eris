@@ -3,7 +3,9 @@ package ir.ciph3r.eris.storage.yml.model;
 import ir.ciph3r.eris.Eris;
 import lombok.Getter;
 import org.simpleyaml.configuration.file.YamlFile;
+import org.simpleyaml.exceptions.InvalidConfigurationException;
 
+import java.io.File;
 import java.io.IOException;
 
 public abstract class YMLModel {
@@ -11,6 +13,8 @@ public abstract class YMLModel {
     private Eris eris;
     @Getter
     private String fileName;
+    @Getter
+    private File file;
     @Getter
     private YamlFile YMLFile;
 
@@ -20,15 +24,16 @@ public abstract class YMLModel {
     }
 
     public void createFile() throws IOException {
-        YMLFile = new YamlFile(getEris().getDataDirectory() + "/" + fileName);
+        file = new File(getEris().getDataDirectory().toString(), fileName);
+        YMLFile = new YamlFile(file);
 
         if (!(YMLFile.exists())) {
-            YMLFile.createNewFile();
+            YMLFile.createNewFile(true);
         }
     }
 
-    public void loadFile() throws IOException {
-        YMLFile.loadWithComments();
+    public void loadFile() throws InvalidConfigurationException, IOException {
+        YMLFile.load();
     }
 
     public abstract void LoadProperties();
